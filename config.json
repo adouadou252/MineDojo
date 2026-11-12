@@ -17,11 +17,17 @@
     "model_error_limit": 3,
     "model_backoff_steps": 24,
     "model_backoff_seconds": 3,
-    "episode_seconds": 3500,
+    "episode_seconds": 3600,
     "model_token_budget": 4500000,
     "interaction_distance": 3.0,
     "memory_size": 48,
     "low_health": 6,
-    "log_decisions": true
+    "log_decisions": true,
+    "progress_interval": 200,
+    "search_timeout": 160,
+    "collect_steps": 16,
+    "budget_reserve_seconds": 5,
+    "token_input_reserve": 16000,
+    "mining_cooldown": 30
   }
 }
