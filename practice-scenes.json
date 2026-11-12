@@ -1,0 +1,92 @@
+[
+  {
+    "id": "woodcraft",
+    "label": "教学例子一：木制工具链（不计分）",
+    "task_id": "open-ended",
+    "world_seed": 42,
+    "max_steps": 1500,
+    "goals": [
+      "log",
+      "planks",
+      "stick",
+      "crafting_table",
+      "wooden_pickaxe"
+    ],
+    "objective_labels": [
+      "获得原木",
+      "制作木板",
+      "制作木棍",
+      "制作工作台",
+      "获得木镐"
+    ],
+    "initial_inventory": [],
+    "start_time": 6000,
+    "allow_time_passage": false,
+    "allow_mob_spawn": false,
+    "env_seed": 42,
+    "mode": "tutorial"
+  },
+  {
+    "id": "stone-tools",
+    "label": "教学例子二：石器工具链（不计分）",
+    "task_id": "open-ended",
+    "world_seed": 43,
+    "max_steps": 6000,
+    "goals": [
+      "wooden_pickaxe",
+      "cobblestone",
+      "stone_pickaxe",
+      "furnace"
+    ],
+    "objective_labels": [
+      "制作木镐",
+      "开采圆石",
+      "制作石镐",
+      "制作熔炉"
+    ],
+    "initial_inventory": [],
+    "start_time": 6000,
+    "allow_time_passage": false,
+    "allow_mob_spawn": false,
+    "env_seed": 43,
+    "mode": "tutorial"
+  },
+  {
+    "id": "iron-age",
+    "label": "完整例子：从零至铁镐（PDF 规则计分）",
+    "task_id": "open-ended",
+    "world_seed": 44,
+    "goals": [
+      "log",
+      "planks",
+      "stick",
+      "crafting_table",
+      "wooden_pickaxe",
+      "cobblestone",
+      "stone_pickaxe",
+      "furnace",
+      "iron_ore",
+      "iron_ingot",
+      "iron_pickaxe"
+    ],
+    "objective_labels": [
+      "原木",
+      "木板",
+      "木棍",
+      "工作台",
+      "木镐",
+      "圆石",
+      "石镐",
+      "熔炉",
+      "铁矿石",
+      "铁锭",
+      "铁镐"
+    ],
+    "initial_inventory": [],
+    "start_time": 6000,
+    "allow_time_passage": false,
+    "allow_mob_spawn": false,
+    "env_seed": 44,
+    "mode": "full"
+  }
+]

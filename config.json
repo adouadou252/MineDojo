@@ -1,0 +1,27 @@
+{
+  "model": {
+    "name": "deepseek-v4.1-flash",
+    "api_url": "https://cfapi.dieqiyun.top/v1/chat/completions",
+    "api_key": ""
+  },
+  "agent": {
+    "max_output_tokens": 1024,
+    "model_timeout": 45,
+    "model_min_interval": 12,
+    "max_action_steps": 16,
+    "attack_timeout": 180,
+    "stuck_steps": 12,
+    "operation_wait_steps": 2,
+    "smelt_wait_steps": 24,
+    "operation_retry_limit": 3,
+    "model_error_limit": 3,
+    "model_backoff_steps": 24,
+    "model_backoff_seconds": 3,
+    "episode_seconds": 3500,
+    "model_token_budget": 4500000,
+    "interaction_distance": 3.0,
+    "memory_size": 48,
+    "low_health": 6,
+    "log_decisions": true
+  }
+}
