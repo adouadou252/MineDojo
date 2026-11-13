@@ -38,6 +38,8 @@
     "visual_move_steps": 8,
     "model_control_steps": 16,
     "navigation_review_steps": 16,
-    "recovery_failure_limit": 2
+    "recovery_failure_limit": 2,
+    "level_pitch": 45,
+    "max_move_pitch": 55
   }
 }

@@ -1,1 +1,0 @@
-{"id": "woodcraft", "label": "教学例子一：木制工具链（不计分）", "task_id": "open-ended", "world_seed": 42, "max_steps": 1500, "goals": ["log", "planks", "stick", "crafting_table", "wooden_pickaxe"], "objective_labels": ["获得原木", "制作木板", "制作木棍", "制作工作台", "获得木镐"], "initial_inventory": [], "start_time": 6000, "allow_time_passage": false, "allow_mob_spawn": false, "env_seed": 42, "mode": "tutorial"}
