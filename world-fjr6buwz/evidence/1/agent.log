@@ -1,0 +1,229 @@
+{"agent": "task", "step": 0, "task": {"kind": "gather", "item": "log", "amount": 3}}
+{"agent": "decision", "step": 0, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "progress", "step": 0, "task": {"kind": "gather", "item": "log", "amount": 3}, "phase": "search", "counts": {}, "material_requirements": {"planks_needed": 9, "logs_needed": 3, "logs_missing": 3}, "no_resource_progress": 0, "task_age": 0, "phase_age": 0, "no_navigation_progress": 0, "metrics": {"model_success": 1, "attack_proposed": 0}, "recoveries": 0, "elapsed_seconds": 4.8, "tokens": 1106}
+{"agent": "decision", "step": 12, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "recovery_started", "step": 13, "level": 1}
+{"agent": "recovery_finished", "step": 19, "displacement": 1.32, "level": 1}
+{"agent": "decision", "step": 24, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 14, 0, 0, 0], "steps": 8}
+{"agent": "decision", "step": 36, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 1, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "decision", "step": 48, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 13, 0, 0, 0], "steps": 8}
+{"agent": "decision", "step": 60, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "decision", "step": 72, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [0, 0, 3, 12, 14, 0, 0, 6], "steps": 6}
+{"agent": "decision", "step": 84, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "recovery_started", "step": 85, "level": 1}
+{"agent": "recovery_finished", "step": 91, "displacement": 1.35, "level": 1}
+{"agent": "decision", "step": 96, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 14, 0, 0, 0], "steps": 8}
+{"agent": "progress", "step": 100, "task": {"kind": "gather", "item": "log", "amount": 3}, "phase": "search", "counts": {}, "material_requirements": {"planks_needed": 9, "logs_needed": 3, "logs_missing": 3}, "no_resource_progress": 100, "task_age": 100, "phase_age": 9, "no_navigation_progress": 2, "metrics": {"model_success": 9, "attack_proposed": 0, "fallback_steps": 75, "recovery_steps": 12, "navigation_progress": 8}, "recoveries": 2, "elapsed_seconds": 62.9, "tokens": 12439}
+{"agent": "decision", "step": 108, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "decision", "step": 120, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 16, 0, 0, 0], "steps": 8}
+{"agent": "recovery_started", "step": 121, "level": 1}
+{"agent": "recovery_finished", "step": 127, "displacement": 1.42, "level": 1}
+{"agent": "decision", "step": 132, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [0, 0, 0, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "decision", "step": 144, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [0, 0, 3, 12, 10, 0, 0, 0], "steps": 5}
+{"agent": "decision", "step": 156, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 1, 12, 10, 0, 0, 0], "steps": 8}
+{"agent": "decision", "step": 168, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 11, 0, 0, 0], "steps": 12}
+{"agent": "decision", "step": 180, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 15, 0, 0, 0], "steps": 8}
+{"agent": "decision", "step": 192, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 9, 0, 0, 0], "steps": 8}
+{"agent": "recovery_started", "step": 193, "level": 1}
+{"agent": "recovery_finished", "step": 199, "displacement": 1.42, "level": 1}
+{"agent": "progress", "step": 200, "task": {"kind": "gather", "item": "log", "amount": 3}, "phase": "search", "counts": {}, "material_requirements": {"planks_needed": 9, "logs_needed": 3, "logs_missing": 3}, "no_resource_progress": 200, "task_age": 200, "phase_age": 1, "no_navigation_progress": 3, "metrics": {"model_success": 17, "attack_proposed": 0, "fallback_steps": 151, "recovery_steps": 24, "navigation_progress": 16}, "recoveries": 4, "elapsed_seconds": 123.3, "tokens": 25701}
+{"agent": "decision", "step": 204, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [0, 0, 0, 12, 10, 0, 0, 0], "steps": 1}
+{"agent": "decision", "step": 216, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 11, 3, 0, 0], "steps": 10}
+{"agent": "recovery_started", "step": 217, "level": 1}
+{"agent": "recovery_finished", "step": 223, "displacement": 1.34, "level": 1}
+{"agent": "decision", "step": 228, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 10, 12, 0, 0, 0], "steps": 6}
+{"agent": "decision", "step": 240, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 15, 11, 0, 0, 0], "steps": 8}
+{"agent": "decision", "step": 252, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 15, 12, 0, 0, 0], "steps": 12}
+{"agent": "decision", "step": 264, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 10, 0, 0, 0], "steps": 12}
+{"agent": "recovery_started", "step": 265, "level": 1}
+{"agent": "recovery_finished", "step": 271, "displacement": 0.15, "level": 1}
+{"agent": "decision", "step": 276, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 12, 18, 0, 0, 0], "steps": 8}
+{"agent": "recovery_started", "step": 277, "level": 2}
+{"agent": "recovery_finished", "step": 283, "displacement": 0.11, "level": 2}
+{"agent": "decision", "step": 288, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 6, 12, 0, 0, 0], "steps": 8}
+{"agent": "recovery_started", "step": 289, "level": 3}
+{"agent": "recovery_finished", "step": 295, "displacement": 0.11, "level": 3}
+{"agent": "decision", "step": 300, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [0, 0, 0, 10, 12, 0, 0, 0], "steps": 1}
+{"agent": "progress", "step": 300, "task": {"kind": "gather", "item": "log", "amount": 3}, "phase": "search", "counts": {}, "material_requirements": {"planks_needed": 9, "logs_needed": 3, "logs_missing": 3}, "no_resource_progress": 300, "task_age": 300, "phase_age": 5, "no_navigation_progress": 47, "metrics": {"model_success": 26, "attack_proposed": 1, "fallback_steps": 218, "recovery_steps": 48, "navigation_progress": 20}, "recoveries": 8, "elapsed_seconds": 185.5, "tokens": 40555}
+{"agent": "decision", "step": 312, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 18, 14, 0, 0, 0], "steps": 8}
+{"agent": "recovery_started", "step": 313, "level": 3}
+{"agent": "recovery_finished", "step": 319, "displacement": 1.44, "level": 3}
+{"agent": "decision", "step": 324, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 17, 12, 0, 0, 0], "steps": 8}
+{"agent": "decision", "step": 336, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 15, 12, 0, 0, 0], "steps": 8}
+{"agent": "decision", "step": 348, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 5, 12, 0, 0, 0], "steps": 16}
+{"agent": "decision", "step": 360, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 17, 0, 0, 0], "steps": 12}
+{"agent": "recovery_started", "step": 361, "level": 1}
+{"agent": "recovery_finished", "step": 367, "displacement": 0.15, "level": 1}
+{"agent": "decision", "step": 372, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [0, 0, 0, 10, 13, 0, 0, 0], "steps": 1}
+{"agent": "decision", "step": 384, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [0, 0, 3, 17, 12, 0, 0, 0], "steps": 8}
+{"agent": "decision", "step": 396, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 12, 14, 0, 0, 0], "steps": 8}
+{"agent": "recovery_started", "step": 397, "level": 2}
+{"agent": "progress", "step": 400, "task": {"kind": "gather", "item": "log", "amount": 3}, "phase": "recover", "counts": {}, "material_requirements": {"planks_needed": 9, "logs_needed": 3, "logs_missing": 3}, "no_resource_progress": 400, "task_age": 400, "phase_age": 3, "no_navigation_progress": 1, "metrics": {"model_success": 34, "attack_proposed": 1, "fallback_steps": 282, "recovery_steps": 64, "navigation_progress": 25}, "recoveries": 11, "elapsed_seconds": 247.3, "tokens": 53624}
+{"agent": "recovery_finished", "step": 403, "displacement": 1.4, "level": 2}
+{"agent": "decision", "step": 408, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 12, 8, 0, 0, 0], "steps": 6}
+{"agent": "decision", "step": 420, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 12, 12, 3, 0, 0], "steps": 4}
+{"agent": "attack_rejected", "step": 420, "reason": "target_or_reach", "block": "snow", "distance": 5.7774763107299805}
+{"agent": "decision", "step": 432, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 12, 16, 0, 0, 0], "steps": 8}
+{"agent": "decision", "step": 444, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 12, 12, 0, 0, 0], "steps": 12}
+{"agent": "decision", "step": 456, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 1, 3, 12, 14, 0, 0, 0], "steps": 8}
+{"agent": "recovery_started", "step": 462, "level": 1}
+{"agent": "recovery_finished", "step": 468, "displacement": 1.35, "level": 1}
+{"agent": "decision", "step": 468, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 11, 0, 0, 0], "steps": 16}
+{"agent": "decision", "step": 484, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 11, 0, 0, 0], "steps": 8}
+{"agent": "decision", "step": 496, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 13, 12, 0, 0, 0], "steps": 12}
+{"agent": "progress", "step": 500, "task": {"kind": "gather", "item": "log", "amount": 3}, "phase": "search", "counts": {}, "material_requirements": {"planks_needed": 9, "logs_needed": 3, "logs_missing": 3}, "no_resource_progress": 500, "task_age": 500, "phase_age": 32, "no_navigation_progress": 2, "metrics": {"model_success": 42, "attack_proposed": 2, "fallback_steps": 313, "recovery_steps": 72, "navigation_progress": 46, "route_continued": 26, "attack_rejected_target": 1}, "recoveries": 12, "elapsed_seconds": 328.2, "tokens": 67442}
+{"agent": "decision", "step": 508, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [0, 0, 0, 10, 6, 0, 0, 0], "steps": 1}
+{"agent": "decision", "step": 520, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 14, 0, 0, 0], "steps": 8}
+{"agent": "decision", "step": 532, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 10, 0, 0, 0], "steps": 12}
+{"agent": "decision", "step": 544, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "decision", "step": 556, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 2, 3, 12, 10, 0, 0, 0], "steps": 8}
+{"agent": "recovery_started", "step": 557, "level": 1}
+{"agent": "recovery_finished", "step": 563, "displacement": 0.15, "level": 1}
+{"agent": "decision", "step": 568, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 9, 0, 0, 0], "steps": 12}
+{"agent": "recovery_started", "step": 569, "level": 2}
+{"agent": "recovery_finished", "step": 575, "displacement": 0.15, "level": 2}
+{"agent": "decision", "step": 580, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 10, 0, 0, 0], "steps": 16}
+{"agent": "recovery_started", "step": 581, "level": 3}
+{"agent": "recovery_finished", "step": 587, "displacement": 0.15, "level": 3}
+{"agent": "decision", "step": 592, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 12, 10, 0, 0, 0], "steps": 5}
+{"agent": "recovery_started", "step": 593, "level": 3}
+{"agent": "recovery_finished", "step": 599, "displacement": 0.11, "level": 3}
+{"agent": "progress", "step": 600, "task": {"kind": "gather", "item": "log", "amount": 3}, "phase": "search", "counts": {}, "material_requirements": {"planks_needed": 9, "logs_needed": 3, "logs_missing": 3}, "no_resource_progress": 600, "task_age": 600, "phase_age": 1, "no_navigation_progress": 41, "metrics": {"model_success": 50, "attack_proposed": 2, "fallback_steps": 374, "recovery_steps": 96, "navigation_progress": 51, "route_continued": 26, "attack_rejected_target": 1}, "recoveries": 16, "elapsed_seconds": 382.9, "tokens": 80669}
+{"agent": "decision", "step": 604, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "recovery_started", "step": 605, "level": 3}
+{"agent": "recovery_finished", "step": 611, "displacement": 0.15, "level": 3}
+{"agent": "decision", "step": 616, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 6, 0, 0, 0], "steps": 8}
+{"agent": "recovery_started", "step": 617, "level": 3}
+{"agent": "recovery_finished", "step": 623, "displacement": 1.32, "level": 3}
+{"agent": "decision", "step": 628, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 13, 0, 0, 0], "steps": 12}
+{"agent": "decision", "step": 640, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "decision", "step": 652, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 8, 10, 0, 0, 0], "steps": 8}
+{"agent": "recovery_started", "step": 653, "level": 1}
+{"agent": "recovery_finished", "step": 659, "displacement": 0.11, "level": 1}
+{"agent": "decision", "step": 664, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [0, 0, 0, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "decision", "step": 676, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 12, 9, 3, 0, 0], "steps": 6}
+{"agent": "recovery_started", "step": 677, "level": 2}
+{"agent": "recovery_finished", "step": 683, "displacement": 0.11, "level": 2}
+{"agent": "decision", "step": 688, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 7, 12, 0, 0, 0], "steps": 12}
+{"agent": "decision", "step": 700, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 10, 9, 0, 0, 0], "steps": 8}
+{"agent": "progress", "step": 700, "task": {"kind": "gather", "item": "log", "amount": 3}, "phase": "search", "counts": {}, "material_requirements": {"planks_needed": 9, "logs_needed": 3, "logs_missing": 3}, "no_resource_progress": 700, "task_age": 700, "phase_age": 9, "no_navigation_progress": 10, "metrics": {"model_success": 59, "attack_proposed": 3, "fallback_steps": 439, "recovery_steps": 120, "navigation_progress": 55, "route_continued": 26, "attack_rejected_target": 1}, "recoveries": 20, "elapsed_seconds": 448.5, "tokens": 96701}
+{"agent": "decision", "step": 712, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 18, 12, 0, 0, 0], "steps": 4}
+{"agent": "recovery_started", "step": 713, "level": 3}
+{"agent": "recovery_finished", "step": 719, "displacement": 1.44, "level": 3}
+{"agent": "decision", "step": 724, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 18, 0, 0, 0], "steps": 8}
+{"agent": "decision", "step": 736, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 12, 0, 0, 0], "steps": 12}
+{"agent": "decision", "step": 748, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 2, 3, 6, 12, 0, 0, 0], "steps": 8}
+{"agent": "decision", "step": 760, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 16, 9, 0, 0, 0], "steps": 8}
+{"agent": "recovery_started", "step": 761, "level": 1}
+{"agent": "recovery_finished", "step": 767, "displacement": 0.15, "level": 1}
+{"agent": "decision", "step": 772, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 10, 9, 0, 0, 0], "steps": 8}
+{"agent": "recovery_started", "step": 773, "level": 2}
+{"agent": "recovery_finished", "step": 779, "displacement": 0.11, "level": 2}
+{"agent": "decision", "step": 784, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 10, 12, 0, 0, 0], "steps": 8}
+{"agent": "recovery_started", "step": 785, "level": 3}
+{"agent": "recovery_finished", "step": 791, "displacement": 0.11, "level": 3}
+{"agent": "decision", "step": 796, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 24, 12, 0, 0, 0], "steps": 8}
+{"agent": "progress", "step": 800, "task": {"kind": "gather", "item": "log", "amount": 3}, "phase": "search", "counts": {}, "material_requirements": {"planks_needed": 9, "logs_needed": 3, "logs_missing": 3}, "no_resource_progress": 800, "task_age": 800, "phase_age": 1, "no_navigation_progress": 52, "metrics": {"model_success": 67, "attack_proposed": 3, "fallback_steps": 485, "recovery_steps": 144, "navigation_progress": 65, "route_continued": 30, "attack_rejected_target": 1}, "recoveries": 24, "elapsed_seconds": 495.8, "tokens": 109416}
+{"agent": "decision", "step": 808, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 4, 0, 0, 0], "steps": 12}
+{"agent": "recovery_started", "step": 809, "level": 3}
+{"agent": "recovery_finished", "step": 815, "displacement": 0.15, "level": 3}
+{"agent": "decision", "step": 820, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "decision", "step": 832, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "recovery_started", "step": 833, "level": 3}
+{"agent": "recovery_finished", "step": 839, "displacement": 0.15, "level": 3}
+{"agent": "decision", "step": 844, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [0, 0, 3, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "decision", "step": 856, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [0, 0, 0, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "decision", "step": 868, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "recovery_started", "step": 869, "level": 3}
+{"agent": "recovery_finished", "step": 875, "displacement": 0.15, "level": 3}
+{"agent": "decision", "step": 880, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "recovery_started", "step": 881, "level": 3}
+{"agent": "recovery_finished", "step": 887, "displacement": 0.15, "level": 3}
+{"agent": "decision", "step": 892, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "recovery_started", "step": 893, "level": 3}
+{"agent": "recovery_finished", "step": 899, "displacement": 0.15, "level": 3}
+{"agent": "progress", "step": 900, "task": {"kind": "gather", "item": "log", "amount": 3}, "phase": "search", "counts": {}, "material_requirements": {"planks_needed": 9, "logs_needed": 3, "logs_missing": 3}, "no_resource_progress": 900, "task_age": 900, "phase_age": 1, "no_navigation_progress": 16, "metrics": {"model_success": 75, "attack_proposed": 3, "fallback_steps": 547, "recovery_steps": 174, "navigation_progress": 66, "route_continued": 30, "attack_rejected_target": 1}, "recoveries": 29, "elapsed_seconds": 550.6, "tokens": 122775}
+{"agent": "decision", "step": 904, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 0, 12, 0, 0, 0], "steps": 8}
+{"agent": "decision", "step": 916, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 9, 0, 0, 0], "steps": 10}
+{"agent": "recovery_started", "step": 917, "level": 3}
+{"agent": "recovery_finished", "step": 923, "displacement": 0.15, "level": 3}
+{"agent": "decision", "step": 928, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 4, 10, 0, 0, 8], "steps": 8}
+{"agent": "decision", "step": 940, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 20, 10, 0, 0, 8], "steps": 10}
+{"agent": "recovery_started", "step": 941, "level": 3}
+{"agent": "recovery_finished", "step": 947, "displacement": 0.15, "level": 3}
+{"agent": "decision", "step": 952, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "recovery_started", "step": 953, "level": 3}
+{"agent": "recovery_finished", "step": 959, "displacement": 0.15, "level": 3}
+{"agent": "decision", "step": 964, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 10, 12, 0, 0, 0], "steps": 8}
+{"agent": "recovery_started", "step": 965, "level": 3}
+{"agent": "recovery_finished", "step": 971, "displacement": 1.44, "level": 3}
+{"agent": "decision", "step": 976, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [0, 1, 0, 12, 4, 0, 0, 0], "steps": 8}
+{"agent": "decision", "step": 988, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 10, 4, 0, 0, 0], "steps": 8}
+{"agent": "decision", "step": 1000, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [0, 1, 0, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "progress", "step": 1000, "task": {"kind": "gather", "item": "log", "amount": 3}, "phase": "search", "counts": {}, "material_requirements": {"planks_needed": 9, "logs_needed": 3, "logs_missing": 3}, "no_resource_progress": 1000, "task_age": 1000, "phase_age": 29, "no_navigation_progress": 13, "metrics": {"model_success": 84, "attack_proposed": 3, "fallback_steps": 603, "recovery_steps": 198, "navigation_progress": 73, "route_continued": 34, "attack_rejected_target": 1}, "recoveries": 33, "elapsed_seconds": 608.5, "tokens": 137836}
+{"agent": "recovery_started", "step": 1001, "level": 1}
+{"agent": "recovery_finished", "step": 1007, "displacement": 0.11, "level": 1}
+{"agent": "decision", "step": 1012, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 15, 0, 0, 0], "steps": 16}
+{"agent": "recovery_started", "step": 1013, "level": 2}
+{"agent": "recovery_finished", "step": 1019, "displacement": 1.38, "level": 2}
+{"agent": "decision", "step": 1024, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 8, 0, 0, 0], "steps": 8}
+{"agent": "decision", "step": 1036, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 8, 0, 0, 0], "steps": 12}
+{"agent": "decision", "step": 1048, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 9, 0, 0, 0], "steps": 8}
+{"agent": "recovery_started", "step": 1049, "level": 1}
+{"agent": "recovery_finished", "step": 1055, "displacement": 0.15, "level": 1}
+{"agent": "decision", "step": 1060, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "decision", "step": 1072, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "recovery_started", "step": 1073, "level": 2}
+{"agent": "recovery_finished", "step": 1079, "displacement": 0.15, "level": 2}
+{"agent": "decision", "step": 1084, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 9, 0, 0, 0], "steps": 16}
+{"agent": "decision", "step": 1096, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 1, 3, 12, 9, 0, 0, 0], "steps": 6}
+{"agent": "recovery_started", "step": 1097, "level": 3}
+{"agent": "progress", "step": 1100, "task": {"kind": "gather", "item": "log", "amount": 3}, "phase": "recover", "counts": {}, "material_requirements": {"planks_needed": 9, "logs_needed": 3, "logs_missing": 3}, "no_resource_progress": 1100, "task_age": 1100, "phase_age": 3, "no_navigation_progress": 0, "metrics": {"model_success": 92, "attack_proposed": 3, "fallback_steps": 667, "recovery_steps": 226, "navigation_progress": 78, "route_continued": 34, "attack_rejected_target": 1}, "recoveries": 38, "elapsed_seconds": 672.2, "tokens": 151066}
+{"agent": "recovery_finished", "step": 1103, "displacement": 1.35, "level": 3}
+{"agent": "decision", "step": 1108, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 12, 0, 0, 0], "steps": 12}
+{"agent": "decision", "step": 1120, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 10, 8, 0, 0, 0], "steps": 16}
+{"agent": "decision", "step": 1132, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 10, 12, 0, 0, 0], "steps": 12}
+{"agent": "decision", "step": 1144, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 9, 12, 0, 0, 0], "steps": 8}
+{"agent": "decision", "step": 1156, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "recovery_started", "step": 1157, "level": 1}
+{"agent": "recovery_finished", "step": 1163, "displacement": 0.11, "level": 1}
+{"agent": "decision", "step": 1168, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 4, 12, 0, 0, 0], "steps": 8}
+{"agent": "decision", "step": 1180, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 1, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "decision", "step": 1192, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 20, 12, 0, 0, 0], "steps": 8}
+{"agent": "progress", "step": 1200, "task": {"kind": "gather", "item": "log", "amount": 3}, "phase": "search", "counts": {}, "material_requirements": {"planks_needed": 9, "logs_needed": 3, "logs_missing": 3}, "no_resource_progress": 1200, "task_age": 1200, "phase_age": 29, "no_navigation_progress": 8, "metrics": {"model_success": 100, "attack_proposed": 3, "fallback_steps": 736, "recovery_steps": 234, "navigation_progress": 86, "route_continued": 34, "attack_rejected_target": 1}, "recoveries": 39, "elapsed_seconds": 727.6, "tokens": 165052}
+{"agent": "decision", "step": 1204, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 15, 0, 0, 0], "steps": 12}
+{"agent": "recovery_started", "step": 1205, "level": 2}
+{"agent": "recovery_finished", "step": 1211, "displacement": 0.07, "level": 2}
+{"agent": "decision", "step": 1216, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "recovery_started", "step": 1217, "level": 3}
+{"agent": "recovery_finished", "step": 1223, "displacement": 0.03, "level": 3}
+{"agent": "decision", "step": 1228, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [0, 0, 0, 6, 12, 0, 0, 0], "steps": 1}
+{"agent": "decision", "step": 1240, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 1, 15, 12, 0, 0, 0], "steps": 8}
+{"agent": "decision", "step": 1252, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 10, 0, 0, 0], "steps": 8}
+{"agent": "decision", "step": 1264, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 12, 0, 0, 0], "steps": 4}
+{"agent": "decision", "step": 1276, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [0, 0, 0, 12, 12, 0, 0, 0], "steps": 1}
+{"agent": "decision", "step": 1288, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 12, 9, 0, 0, 0], "steps": 4}
+{"agent": "decision", "step": 1300, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 10, 0, 0, 0], "steps": 12}
+{"agent": "progress", "step": 1300, "task": {"kind": "gather", "item": "log", "amount": 3}, "phase": "search", "counts": {}, "material_requirements": {"planks_needed": 9, "logs_needed": 3, "logs_missing": 3}, "no_resource_progress": 1300, "task_age": 1300, "phase_age": 77, "no_navigation_progress": 3, "metrics": {"model_success": 109, "attack_proposed": 3, "fallback_steps": 795, "recovery_steps": 246, "navigation_progress": 95, "route_continued": 69, "attack_rejected_target": 1}, "recoveries": 41, "elapsed_seconds": 785.1, "tokens": 180140}
+{"agent": "decision", "step": 1312, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 2, 0, 12, 9, 0, 0, 0], "steps": 12}
+{"agent": "decision", "step": 1324, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 12, 15, 0, 0, 0], "steps": 8}
+{"agent": "decision", "step": 1336, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 12, 18, 0, 0, 0], "steps": 14}
+{"agent": "recovery_started", "step": 1337, "level": 3}
+{"agent": "recovery_finished", "step": 1343, "displacement": 1.34, "level": 3}
+{"agent": "decision", "step": 1348, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [0, 0, 0, 12, 10, 0, 0, 0], "steps": 1}
+{"agent": "decision", "step": 1360, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 15, 0, 0, 0], "steps": 12}
+{"agent": "recovery_started", "step": 1361, "level": 1}
+{"agent": "recovery_finished", "step": 1367, "displacement": 1.42, "level": 1}
+{"agent": "decision", "step": 1372, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 12, 18, 0, 0, 0], "steps": 6}
+{"agent": "decision", "step": 1384, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 10, 12, 0, 0, 0], "steps": 8}
+{"agent": "decision", "step": 1396, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 12, 10, 0, 0, 0], "steps": 8}
+{"agent": "progress", "step": 1400, "task": {"kind": "gather", "item": "log", "amount": 3}, "phase": "search", "counts": {}, "material_requirements": {"planks_needed": 9, "logs_needed": 3, "logs_missing": 3}, "no_resource_progress": 1400, "task_age": 1400, "phase_age": 33, "no_navigation_progress": 13, "metrics": {"model_success": 117, "attack_proposed": 3, "fallback_steps": 841, "recovery_steps": 258, "navigation_progress": 110, "route_continued": 83, "attack_rejected_target": 1}, "recoveries": 43, "elapsed_seconds": 835.5, "tokens": 192998}
+{"agent": "decision", "step": 1408, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 12, 12, 3, 0, 0], "steps": 4}
+{"agent": "attack_rejected", "step": 1408, "reason": "target_or_reach", "block": "grass_block", "distance": 8.726502418518066}
+{"agent": "decision", "step": 1420, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 8, 12, 0, 0, 0], "steps": 6}
+{"agent": "decision", "step": 1432, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 18, 14, 0, 0, 0], "steps": 8}
+{"agent": "recovery_started", "step": 1433, "level": 1}
+{"agent": "recovery_finished", "step": 1439, "displacement": 1.26, "level": 1}
+{"agent": "decision", "step": 1444, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 0, 10, 12, 0, 0, 0], "steps": 6}
+{"agent": "decision", "step": 1456, "task": {"kind": "gather", "item": "log", "amount": 3}, "action": [1, 0, 3, 12, 11, 3, 0, 0], "steps": 12}
+{"agent": "tree_target", "step": 1457, "position": [-280, 73, -162]}

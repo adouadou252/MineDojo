@@ -34,6 +34,10 @@
     "navigation_timeout": 24,
     "collect_arrival_steps": 8,
     "facility_return_steps": 100,
-    "recovery_steps": 6
+    "recovery_steps": 6,
+    "visual_move_steps": 8,
+    "model_control_steps": 16,
+    "navigation_review_steps": 16,
+    "recovery_failure_limit": 2
   }
 }

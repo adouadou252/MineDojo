@@ -1,1 +1,0 @@
-{"id": "stone-tools", "label": "教学例子二：石器工具链（不计分）", "task_id": "open-ended", "world_seed": 43, "max_steps": 6000, "goals": ["wooden_pickaxe", "cobblestone", "stone_pickaxe", "furnace"], "objective_labels": ["制作木镐", "开采圆石", "制作石镐", "制作熔炉"], "initial_inventory": [], "start_time": 6000, "allow_time_passage": false, "allow_mob_spawn": false, "env_seed": 43, "mode": "tutorial"}

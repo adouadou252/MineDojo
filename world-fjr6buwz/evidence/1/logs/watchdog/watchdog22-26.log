@@ -1,0 +1,2 @@
+2026-11-13 06:34:32 ea16b8d221d2 watchdog[61] INFO Watchdog started between parent 22 and child 26
+2026-11-13 06:49:58 ea16b8d221d2 watchdog[61] INFO Parent is not running, hence we need terminate the child.

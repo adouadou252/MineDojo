@@ -1,0 +1,1 @@
+{"started_monotonic": 617.250622779, "seconds_limit": 3600, "tokens_limit": 5000000, "tokens": 200864, "calls": 122, "exhausted_at_monotonic": null, "fault": null, "last_error": null, "metering_scope": "delivered_responses"}

@@ -39,6 +39,8 @@ DEFAULTS = {
     "target_lifetime": 160, "route_steps": 48,
     "navigation_timeout": 24, "collect_arrival_steps": 8,
     "facility_return_steps": 100, "recovery_steps": 6,
+    "visual_move_steps": 8, "model_control_steps": 16,
+    "navigation_review_steps": 16, "recovery_failure_limit": 2,
 }
 
 
@@ -125,7 +127,15 @@ class Agent:
         self.route = None
         self.recovery_origin = None
         self.recovery_completed = False
+        self.recovery_measure_after = 0
+        self.recovery_failures = 0
         self.failed_trees = {}
+        self.visual_move = None
+        self.model_control_until = 0
+        self.recovery_hold_until = 0
+        self.last_navigation_review = 0
+        self.search_origin = None
+        self.search_started = 0
         self.recovery_level = 0
         self.wood_requirements = {}
         self.last_summary = -self.settings["progress_interval"]
@@ -173,12 +183,18 @@ class Agent:
     def _verify(self, state, obs):
         self.node = "verify"
         previous = self.previous
-        if self.recovery_completed:
+        if self.recovery_completed and state["step"] >= self.recovery_measure_after:
             displacement = distance(self.recovery_origin, state["pos"])
             self._log("recovery_finished", step=state["step"],
                       displacement=round(displacement, 2), level=self.recovery_level)
             if displacement >= 0.75:
                 self.recovery_level = 0
+                self.recovery_failures = 0
+            else:
+                self.recovery_failures += 1
+                if self.recovery_failures >= self.settings["recovery_failure_limit"]:
+                    self.route = None
+                    self._handoff(state, "repeated recovery produced negligible displacement; choose a new route")
             self.recovery_completed = False
         if previous:
             moved = distance(state["pos"], previous["pos"])
@@ -222,6 +238,8 @@ class Agent:
                     self.attack_key = None
                     self.segment = None
                     self.feedback = "target changed after mining; check nearby drops"
+            if self._move_hazard(state):
+                self.visual_move = None
             if state["health"] < previous["health"]:
                 self.segment = None
                 self.feedback = "health decreased; avoid hazards"
@@ -308,6 +326,20 @@ class Agent:
             if (failed or not hinted) and not (counts["coal"] or counts["charcoal"]):
                 return self._need("coal", 1, state, trail)
         return {"kind": "craft", "item": item, "amount": amount}
+
+    def _handoff(self, state, reason):
+        self.segment = None
+        self.visual_move = None
+        self.recovery_requested = False
+        self.recovery_remaining = 0
+        self.model_control_until = state["step"] + self.settings["model_control_steps"]
+        self.recovery_hold_until = self.model_control_until
+        if not self.model_errors:
+            self.next_model_step = state["step"]
+        self.feedback = reason
+        self.metrics["model_handoffs"] += 1
+        self._log("model_handoff", step=state["step"], reason=reason,
+                  until=self.model_control_until)
 
     def _phase(self, name, state):
         if name != self.phase:
@@ -472,11 +504,23 @@ class Agent:
             if self.recovery_level >= 2:
                 self.target = None
             self._log("recovery_started", step=state["step"], level=self.recovery_level)
-        if self._safe_move(state):
-            action[1] = 1 if self.recovery % 2 else 2
-            action[2] = 1
+        if not self._safe_move(state):
+            self._handoff(state, "recovery path unconfirmed; inspect image and select a safe short route")
+            return action
+        if self.visual_move:
+            action[0], action[1] = self.visual_move["motion"]
+            action[2] = 2
+        else:
+            self.recovery_remaining = 0
+            return self._fallback(state, obs)
         if self.recovery_remaining == self.settings["recovery_steps"]:
+            action = list(obs["noop_action"])
             action[4] = (12 + self.recovery_level) if self.recovery % 2 else (12 - self.recovery_level)
+            self._handoff(state, "recovery changed view; inspect the new direction before moving")
+            self.recovery_completed = True
+            self.recovery_measure_after = self.model_control_until
+            self.metrics["recovery_steps"] += 1
+            return action
         self.recovery_remaining -= 1
         self.metrics["recovery_steps"] += 1
         if not self.recovery_remaining:
@@ -495,6 +539,10 @@ class Agent:
                 "last_action": obs.get("last_action"),
                 "material_requirements": self.wood_requirements,
                 "tree_target": self.target, "search_route": self.route,
+                "model_control_until": self.model_control_until,
+                "recovery_failures": self.recovery_failures,
+                "search_displacement": (distance(self.search_origin, state["pos"])
+                                        if self.search_origin else 0),
                 "failed_trees": [{"position": pos, "until": until}
                                  for pos, until in self.failed_trees.items()
                                  if until > state["step"]],
@@ -522,7 +570,7 @@ class Agent:
         self.client.max_output_tokens = min(self.settings["max_output_tokens"], self.settings["model_token_budget"] - self.tokens)
         prompt = (
             "Control Minecraft through MineDojo. Finish the current task quickly and reliably. "
-            "Return ONLY JSON: {\"action\":[8 integers],\"steps\":integer,\"reason\":\"short\"}. "
+            "Return ONLY JSON: {\"action\":[8 integers],\"steps\":integer,\"safe_path\":boolean,\"reason\":\"short\"}. "
             "Action dimensions: forward 0=still/1=forward/2=back; strafe 0=still/1=left/2=right; "
             "stance 0=normal/1=jump/2=sneak/3=sprint; pitch and yaw 0..24,12=no rotation; "
             "operation 0=noop/1=use/2=drop/3=attack/4=craft-smelt/5=equip/6=place/7=destroy; "
@@ -542,6 +590,10 @@ class Agent:
             "Use phase and collection.position: safely collect drops before searching again. "
             "When collection is active, do not attack or abandon drops to search for another tree. "
             "Use the image for directions; one crosshair ray is not a map or proof of reach. "
+            "Set safe_path=true only when the image shows safe support along the short movement path. "
+            "If a tree is visible outside the crosshair, aim at its trunk, then approach. "
+            "During search, combine a coherent heading with short safe movement instead of repeated stationary scans. "
+            "If feedback requests a new route, use the image to choose a different direction, not another identical recovery. "
             "Avoid water, lava, cliffs, digging straight down and breaking our facilities. "
             "Mining requires suitable equipped pickaxes; keep a stable aim. "
             "When a block breaks, move safely toward drops if inventory has not increased. "
@@ -586,10 +638,23 @@ class Agent:
                     and self._blocked("place:" + self.task["item"], state) and action[5] == 6):
                 raise ValueError("placement cooling down; reposition first")
             duration = min(steps, self.settings["max_action_steps"])
+            moving = bool(action[0] or action[1])
+            self.visual_move = None
+            if moving and self._move_hazard(state):
+                raise ValueError("movement blocked by recent hazard or unsafe view")
+            if (moving and action[3] == action[4] == 12 and image
+                    and decision.get("safe_path") is True):
+                self.visual_move = {"position": state["pos"],
+                                    "yaw": state["orientation"].get("yaw", 0),
+                                    "motion": [action[0], action[1]],
+                                    "until": state["step"] + self.settings["visual_move_steps"]}
+                duration = min(duration, self.settings["visual_move_steps"])
             if self.collect or self.target or self.task["kind"] in {"place", "return"}:
                 duration = min(duration, 4)
-            if (action[0] or action[1]) and action[3] == action[4] == 12 and not self._safe_move(state):
+            if moving and not self._safe_move(state):
+                action[0] = action[1] = 0
                 duration = 1
+                self.feedback = "movement withheld; safe path not visually confirmed"
             self.segment = {"action": action, "remaining": duration,
                             "first": True, "task": dict(self.task)}
             if (self.task["kind"] == "gather" and self.task["item"] == "log"
@@ -602,7 +667,9 @@ class Agent:
             self.metrics["model_success"] += 1
             self.metrics["attack_proposed"] += int(action[5] == 3)
             self._log("decision", step=state["step"], task=self.task,
-                      action=action, steps=self.segment["remaining"])
+                      action=action, steps=self.segment["remaining"],
+                      visual_path=bool(self.visual_move),
+                      model_control=state["step"] < self.model_control_until)
             return True
         except (ValueError, TypeError, KeyError, RuntimeError, OSError) as error:
             self.model_errors += 1
@@ -674,6 +741,20 @@ class Agent:
                 action[5] = 0
         segment["first"] = False
         segment["remaining"] -= 1
+        if action[5] == 3:
+            key = (state["block"], *(state["hit"].get("traced_block_" + a) for a in "xyz"))
+            if key != self.attack_key:
+                self.attack_key, self.attack_steps = key, 0
+            self.attack_steps += 1
+            if self.attack_steps > self.settings["attack_timeout"]:
+                self.mining_cooldown[key] = state["step"] + self.settings["mining_cooldown"]
+                self.attack_key = None
+                self.attack_steps = 0
+                self.segment = None
+                self._handoff(state, "model mining timed out; check reach and target")
+                return list(obs["noop_action"])
+            action[0] = action[1] = action[2] = 0
+            self._phase("mine", state)
         if action[5] == 6:
             return self._issue(action, "place", self.task["item"], state)
         return action
@@ -694,19 +775,27 @@ class Agent:
                       resource=self.collect["item"])
             self.metrics["collect_" + reason] += 1
         self.collect = None
+        self.search_origin = state["pos"]
+        self.search_started = state["step"]
         self.segment = None
         self._phase("search", state)
 
+    def _move_hazard(self, state):
+        if (state["health"] <= self.settings["low_health"]
+                or abs(state["orientation"].get("pitch", 0)) > 55
+                or state["block"] in {"water", "flowing_water", "lava", "flowing_lava"}):
+            return True
+        return bool(self.previous and (
+            state["health"] < self.previous["health"]
+            or state["pos"][1] < self.previous["pos"][1] - 0.6))
+
     def _safe_move(self, state):
-        pitch = state["orientation"].get("pitch", 0)
-        if (state["health"] <= self.settings["low_health"] or abs(pitch) > 55
-                or state["block"] in {"water", "flowing_water", "lava", "flowing_lava",
-                                      "none", "none_in_range", "air"}):
+        if self._move_hazard(state):
             return False
-        if self.previous and (state["health"] < self.previous["health"]
-                              or state["pos"][1] < self.previous["pos"][1] - 0.6):
-            return False
-        return True
+        permit = self.visual_move
+        return bool(permit and state["step"] <= permit["until"]
+                    and abs((state["orientation"].get("yaw", 0) - permit["yaw"] + 180) % 360 - 180) <= 7.5
+                    and abs(state["pos"][1] - permit["position"][1]) < 1.25)
 
     def _navigate(self, target, state, obs, arrival=1.0, block_center=True,
                   horizontal_only=False):
@@ -722,8 +811,15 @@ class Agent:
         if abs(error) > 12:
             action[4] = 13 if error > 0 else 11
             return action
-        if self._safe_move(state) and (horizontal_only or abs(target[1] - state["pos"][1]) < 2.5):
+        if (self._safe_move(state) and self.visual_move["motion"] == [1, 0]
+                and (horizontal_only or abs(target[1] - state["pos"][1]) < 2.5)):
             action[0], action[2] = 1, 2
+            hit_distance = state["hit"].get("block_distance")
+            if (self.task["kind"] == "gather" and self.task["item"] == "log"
+                    and not self.collect and resource_matches("log", state["block"])
+                    and isinstance(hit_distance, (int, float))
+                    and hit_distance > self.settings["interaction_distance"] + 1):
+                action[2] = 0
             return action
         return None
 
@@ -777,6 +873,7 @@ class Agent:
                                "best_distance": distance(position, state["pos"]),
                                "progress_step": state["step"]}
                 self.segment = None
+                self.last_navigation_review = state["step"]
                 self._log("tree_target", step=state["step"], position=position)
         if self.target:
             current_distance = distance(self.target["position"], state["pos"])
@@ -789,9 +886,23 @@ class Agent:
                 self.memory.append({"failed_tree": position, "step": state["step"]})
                 self.failed_trees[position] = state["step"] + self.settings["target_lifetime"]
                 self.target = self.segment = None
-                self.feedback = "tree approach made no progress; choose another path"
-                self.recovery_requested = True
-                return list(obs["noop_action"])
+                self.search_origin = state["pos"]
+                self.search_started = state["step"]
+                self._handoff(state, "tree approach stalled; choose alternate access or another visible trunk")
+                return None
+            if state["step"] < self.model_control_until:
+                return None
+            if state["step"] - self.last_navigation_review >= self.settings["navigation_review_steps"]:
+                self.last_navigation_review = state["step"] + self.settings["model_control_steps"]
+                dx = self.target["position"][0] + 0.5 - state["pos"][0]
+                dz = self.target["position"][2] + 0.5 - state["pos"][2]
+                yaw_error = (math.degrees(math.atan2(-dx, dz))
+                             - state["orientation"].get("yaw", 0) + 180) % 360 - 180
+                self._log("tree_approach", step=state["step"], distance=round(current_distance, 2),
+                          yaw_error=round(yaw_error, 1),
+                          no_progress=state["step"] - self.target["progress_step"])
+                self._handoff(state, "review tree approach using image; choose safe speed or an alternate path")
+                return None
             action = self._navigate(self.target["position"], state, obs, arrival=1.8)
             if action is not None:
                 self._phase("approach", state)
@@ -852,20 +963,33 @@ class Agent:
             if not self.collect or task["kind"] != "gather" or task["item"] != self.collect["item"]:
                 self.collect = None
             self.task_started_step = state["step"]
+            if task["kind"] == "gather" and task["item"] == "log":
+                self.search_origin = state["pos"]
+                self.search_started = state["step"]
+                self.target = self.route = None
             self._phase("plan", state)
             self._log("task", step=state["step"], task=task)
-        if (self.task["kind"] == "gather" and not self.collect
-                and state["step"] - max(self.last_resource_step, self.task_started_step,
-                                         self.last_recovery_step) >= self.settings["search_timeout"]
-                and self.phase != "mine"):
-            self.feedback = "search made no progress; change view or route"
-            self.recovery_requested = True
+        if self.search_origin is None:
+            self.search_origin = state["pos"]
+            self.search_started = state["step"]
+        wood_search = (self.task["kind"] == "gather" and self.task["item"] == "log"
+                       and not self.collect)
+        if (wood_search and not self.target and state["step"] >= self.model_control_until
+                and state["step"] - self.search_started >= self.settings["search_timeout"]):
+            displacement = distance(self.search_origin, state["pos"])
+            self.memory.append({"search_origin": self.search_origin, "end": state["pos"],
+                                "displacement": round(displacement, 2), "step": state["step"]})
+            self.search_origin = state["pos"]
+            self.search_started = state["step"]
+            self.route = None
+            self._handoff(state, "search interval found no log; choose a new visible trunk or search region")
         action = None
         if self.pending:
             action = list(observation["noop_action"])
         elif state["health"] <= 0:
             action = list(observation["noop_action"])
-        elif self.recovery_requested or self.recovery_remaining or self._stuck(state):
+        elif (state["step"] >= self.recovery_hold_until
+              and (self.recovery_requested or self.recovery_remaining or self._stuck(state))):
             self.segment = None
             self.feedback = "movement stuck; try another route"
             action = self._recover(state, observation)
@@ -873,7 +997,9 @@ class Agent:
             if state["health"] <= self.settings["low_health"]:
                 self.feedback = "low health; avoid hazards while continuing the task"
             action = self._collect_action(state, observation)
-            if action is None and not self.collect:
+            if (action is None and not self.collect
+                    and (self.task["kind"] != "gather"
+                         or state["step"] >= self.model_control_until)):
                 action = self._execute(state, observation)
             if (action is None and not self.collect
                     and self.task["kind"] == "gather"
