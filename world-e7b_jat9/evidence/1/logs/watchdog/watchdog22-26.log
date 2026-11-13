@@ -1,0 +1,2 @@
+2026-11-12 13:50:48 07d58985dfd8 watchdog[61] INFO Watchdog started between parent 22 and child 26
+2026-11-12 14:05:32 07d58985dfd8 watchdog[61] INFO Parent is not running, hence we need terminate the child.

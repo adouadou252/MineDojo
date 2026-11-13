@@ -1,0 +1,2 @@
+{"kind": "upstream_response_error", "gateway_request_id": "9595d1b1de6b6002adc2fa1067b9de61", "exception": "JSONDecodeError", "cause": "JSONDecodeError", "http_status": 200, "upstream_request_id": "9595d1b1de6b6002adc2fa1067b9de61", "upstream_reported_tokens": null, "at_monotonic": 24310.824373862}
+{"kind": "upstream_http_error", "gateway_request_id": "99baa844f664db0ab15b8bb7f39b3961", "exception": "HTTPError", "cause": "str", "http_status": 400, "upstream_request_id": "99baa844f664db0ab15b8bb7f39b3961", "upstream_reported_tokens": null, "at_monotonic": 25809.223452368}
